@@ -9,7 +9,7 @@
 <body>
 <h3><a href="index.html">Home</a></h3>
 <h2>Meals</h2>
-<h3><a href="/topjava/meals?index=${index}&action=add">Add Meal</a></h3>
+<h3><a href="/topjava/meals?action=add">Add Meal</a></h3>
 <table rules="all" border="3" cellpadding="10">
     <thead>
     <tr>
@@ -27,9 +27,8 @@
                 <td><font color="red"> ${meal.date} ${meal.time}</font></td>
                 <td><font color="red"> ${meal.description}</font></td>
                 <td><font color="red"> ${meal.calories}</font></td>
-                <td><a href="/topjava/meals?index=${index}&action=update">Update</a></td>
-                <td><a href="/topjava/meals?index=${index}&action=delete">Delete</a></td>
-                <% request.setAttribute("index", (Integer) request.getAttribute("index") + 1); %>
+                <td><a href="/topjava/meals?index=${meal.id}&action=update">Update</a></td>
+                <td><a href="/topjava/meals?index=${meal.id}&action=delete">Delete</a></td>
             </tr>
         </c:if>
         <c:if test="${!meal.excess}">
@@ -37,9 +36,8 @@
                 <td><font color="green"> ${meal.date} ${meal.time}</font></td>
                 <td><font color="green"> ${meal.description}</font></td>
                 <td><font color="green"> ${meal.calories}</font></td>
-                <td><a href="/topjava/meals?index=${index}&action=update">Update</a></td>
-                <td><a href="/topjava/meals?index=${index}&action=delete">Delete</a></td>
-                <% request.setAttribute("index", (Integer) request.getAttribute("index") + 1); %>
+                <td><a href="/topjava/meals?index=${meal.id}&action=update">Update</a></td>
+                <td><a href="/topjava/meals?index=${meal.id}&action=delete">Delete</a></td>
             </tr>
         </c:if>
     </c:forEach>
